@@ -24,8 +24,14 @@ jobs:
       - name: Run Jest Tests
         run: npm test -- --coverage
 
-      - name: Generate Coverage Report
-        run: npm run coverage
+      - name: Upload Test Report
+        # ใช้ 'always()'
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jest-test-report
+          path: coverage/
+          retention-days: 5
 
   # build-and-deploy:
   #   needs: test  # ทำให้แน่ใจว่า job test ผ่านก่อนถึงจะ build และ deploy
