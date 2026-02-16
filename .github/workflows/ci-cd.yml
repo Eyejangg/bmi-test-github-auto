@@ -24,6 +24,9 @@ jobs:
       - name: Run Jest Tests
         run: npm test -- --coverage
 
+      - name: Generate Coverage Report
+        run: npm run coverage
+
   # build-and-deploy:
   #   needs: test  # ทำให้แน่ใจว่า job test ผ่านก่อนถึงจะ build และ deploy
   #   runs-on: ubuntu-latest
